@@ -5,8 +5,21 @@ const ErrorResponse = require("../utils/errorResponse");
 // @desc    Get all bootcamps
 // @route   Get /api/v1/bootcamps
 // @access  Public
+// @query   location.state, housing, averageCost[lte]=10000
 exports.getBootcamps = asyncHandler(async (req, res, next) => {
-    const bootcamps = await Bootcamp.find();
+    let query;
+
+    let queryStr = JSON.stringify(req.query);
+
+    queryStr = queryStr.replace(
+        /\b(gt|gte|lt|lte|in)\b/g,
+        (match) => `$${match}`,
+    );
+    console.log(queryStr);
+
+    query = Bootcamp.find(JSON.parse(queryStr));
+
+    const bootcamps = await query;
 
     res.status(200).json({
         success: true,
