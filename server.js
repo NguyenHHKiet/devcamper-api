@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const colors = require("colors");
 const errorHandler = require("./middleware/error");
+const ErrorResponse = require("./utils/errorResponse");
 const connectDB = require("./config/db");
 
 // Load environment variables
@@ -29,6 +30,13 @@ if (process.env.NODE_ENV === "development") {
 app.use("/api/v1/bootcamps", bootcamps);
 app.use("/api/v1/courses", courses);
 
+// next handler error if something goes wrong ---------------------------
+app.use((req, res, next) => {
+    // Error goes via `next()` method now
+    setImmediate(() => {
+        next(new ErrorResponse("Something went wrong!!!", 500));
+    });
+});
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 8080;
