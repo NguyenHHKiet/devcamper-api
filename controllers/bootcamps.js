@@ -28,7 +28,7 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
     );
 
     // Finding resources => mongoose object
-    query = Bootcamp.find(JSON.parse(queryStr));
+    query = Bootcamp.find(JSON.parse(queryStr)).populate("courses");
 
     // Select Fields
     if (req.query.select) {
@@ -134,6 +134,8 @@ exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
     if (!bootcamp) {
         return next(err);
     }
+
+    bootcamp.remove();
 
     res.status(200).json({ success: true, data: {} });
 });
