@@ -100,7 +100,9 @@ const BootcampSchema = new mongoose.Schema({
 
 // Create bootcamp slug from the name
 BootcampSchema.pre("save", function (next) {
-    // console.log("Slugify ran", this.name);
+    // A slug is a string that is used to uniquely identify a resource in a URL-friendly way.
+    // console.log(slugify("The Quick Brown Fox Jumps Over The Lazy Dog! "));
+    // "the-quick-brown-fox-jumps-over-the-lazy-dog"
     this.slug = slugify(this.name, { lower: true });
     next();
 });
