@@ -10,6 +10,16 @@ Create a "config/config.env" file and update the values/settings to your own
 
 -   Use Postman to create documentation
 
+### GET/POST/PUT/DELETE
+
+| Header Routes     |
+| ----------------- |
+| /api/v1/bootcamps |
+| /api/v1/courses   |
+| /api/v1/reviews   |
+| /api/v1/auth      |
+| /api/v1/users     |
+
 ### Bootcamps
 
 -   List all bootcamps in the database

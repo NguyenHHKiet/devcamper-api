@@ -1,7 +1,11 @@
+const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const colors = require("colors");
+const fileUpload = require("express-fileupload");
+const helmet = require("helmet");
+const compression = require("compression");
 const errorHandler = require("./middleware/error");
 const ErrorResponse = require("./utils/errorResponse");
 const connectDB = require("./config/db");
@@ -25,6 +29,18 @@ app.use(express.json());
 if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
 }
+
+// Helmet helps secure Express apps by setting HTTP response headers.
+app.use(helmet());
+
+// decreases the downloadable amount of data that's served to users.
+app.use(compression()); // compress responses
+
+// File uploading
+app.use(fileUpload());
+
+// Set static folder
+app.use(express.static(path.join(__dirname, "public")));
 
 // Mount routes
 app.use("/api/v1/bootcamps", bootcamps);
