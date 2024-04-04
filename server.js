@@ -6,6 +6,7 @@ const colors = require("colors");
 const fileUpload = require("express-fileupload");
 const helmet = require("helmet");
 const compression = require("compression");
+const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
 const ErrorResponse = require("./utils/errorResponse");
 const connectDB = require("./config/db");
@@ -25,6 +26,9 @@ const app = express();
 
 // Body parser
 app.use(express.json());
+
+// Cookie parser
+app.use(cookieParser());
 
 // Dev logging middleware
 if (process.env.NODE_ENV === "development") {
