@@ -10,7 +10,8 @@
         "dev": "nodemon server",
         "import": "node seeder -i",
         "delete": "node seeder -d",
-        "prepare": "husky"
+        "prepare": "husky",
+        "format": "prettier . --write"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",
@@ -43,6 +44,6 @@
         }
     },
     "lint-staged": {
-        "**/*.js": "prettier --write --ignore-unknown"
+        "**/*": "prettier --write --ignore-unknown"
     }
 }
