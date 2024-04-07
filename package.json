@@ -10,8 +10,7 @@
         "dev": "nodemon server",
         "import": "node seeder -i",
         "delete": "node seeder -d",
-        "prepare": "husky",
-        "format": "prettier . --write"
+        "prepare": "husky"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",
@@ -28,6 +27,12 @@
         "slugify": "^1.6.6"
     },
     "devDependencies": {
+        "eslint": "^8.0.1",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-config-standard": "^17.1.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+        "eslint-plugin-promise": "^6.0.0",
         "git-commit-msg-linter": "^5.0.7",
         "husky": "^9.0.11",
         "lint-staged": "^15.2.2",
@@ -35,15 +40,10 @@
         "pinst": "^3.0.0",
         "prettier": "^3.2.5"
     },
-    "husky": {
-        "hooks": {
-            "applypatch-msg": "echo \"[Husky] applypatch-msg\"",
-            "pre-applypatch": "echo \"[Husky] pre-applypatch\"",
-            "post-applypatch": "echo \"[Husky] post-applypatch\"",
-            "pre-commit": "echo \"[Husky] pre-commit\""
-        }
-    },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"
+    },
+    "lint:fix": {
+        "**/*": "eslint --fix ./*.js"
     }
 }
