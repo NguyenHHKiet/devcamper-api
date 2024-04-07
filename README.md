@@ -10,9 +10,17 @@ Create a "config/config.env" file and update the values/settings to your own
 cd devcamper-api
 yarn
 
-node seeder -i
-node seeder -d
+// Automated create database of MongoDB
+node seeder -i // create
+node seeder -d // delete
 ```
+
+## Tech Stack
+
+-   ReactJS
+-   React-Redux
+-   React-Router-Dom
+-   Bootstrap
 
 ## Documentation
 
@@ -20,13 +28,19 @@ node seeder -d
 
 ### GET/POST/PUT/DELETE
 
-| Header Routes     | Filter Values                        | Query Properties        | Limit Items      |
-| ----------------- | ------------------------------------ | ----------------------- | ---------------- |
-| /api/v1/bootcamps | ?housing=true&averageCost[lte]=10000 | ?select=name&sort=-name | ?page=2&limit=10 |
-| /api/v1/courses   |                                      |
-| /api/v1/reviews   |                                      |
-| /api/v1/auth      |                                      |
-| /api/v1/users     |                                      |
+| Header Routes     | GET | POST | PUT | DELETE |
+| ----------------- | --- | ---- | --- | ------ |
+| /api/v1/bootcamps |     |      |     |
+| /api/v1/courses   |     |
+| /api/v1/reviews   |     |
+| /api/v1/auth      |     |
+| /api/v1/users     |     |
+
+<ul>
+    <li>Filter Values: housing=true&averageCost[lte]=100</li>
+    <li>Query Properties: select=name&sort=-name</li>
+    <li>Limit Items: page=2&limit=10</li>
+</ul>
 
 ### Bootcamps
 

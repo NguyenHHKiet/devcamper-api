@@ -15,16 +15,7 @@ module.exports = {
         sourceType: "module",
     },
     rules: {
-        "no-unused-vars": [
-            "error",
-            {
-                vars: "all",
-                args: "after-used",
-                caughtErrors: "all",
-                ignoreRestSiblings: false,
-                reportUsedIgnorePattern: false,
-            },
-        ],
+        "no-unused-vars": "error",
         curly: "error",
         "no-undef": "off",
         "prettier/prettier": "error",

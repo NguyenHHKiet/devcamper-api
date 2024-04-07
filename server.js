@@ -69,10 +69,11 @@ const server = app.listen(
         `Server listening on ${process.env.NODE_ENV} mode on port ${PORT}`
             .yellow.bold,
     ),
+    console.log(colors.rainbow("OMG Rainbows!")),
 );
 
 // Handle unhandled promise rejections
-process.on("uncaughtException", (err, promise) => {
+process.on("uncaughtException", (err) => {
     console.log(`Error: ${err.message}`.red);
     // Close server & exit process
     server.close(() => process.exit(1));

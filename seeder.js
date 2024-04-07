@@ -44,7 +44,7 @@ const deleteData = async () => {
     }
 };
 
-// node seeder -i/-d
+console.log(colors.rainbow("OMG Rainbows!")); // rainbow
 if (process.argv[2] === "-i") {
     importData();
 } else if (process.argv[2] === "-d") {

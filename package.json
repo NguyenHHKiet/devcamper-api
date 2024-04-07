@@ -10,7 +10,8 @@
         "dev": "nodemon server",
         "import": "node seeder -i",
         "delete": "node seeder -d",
-        "prepare": "husky"
+        "prepare": "husky",
+        "lint:fix": "eslint --fix ./*.js"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",
@@ -32,6 +33,7 @@
         "eslint-config-standard": "^17.1.0",
         "eslint-plugin-import": "^2.25.2",
         "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+        "eslint-plugin-prettier": "^5.1.3",
         "eslint-plugin-promise": "^6.0.0",
         "git-commit-msg-linter": "^5.0.7",
         "husky": "^9.0.11",
@@ -42,8 +44,5 @@
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"
-    },
-    "lint:fix": {
-        "**/*": "eslint --fix ./*.js"
     }
 }
