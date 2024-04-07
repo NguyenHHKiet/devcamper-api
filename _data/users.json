@@ -71,7 +71,7 @@
     },
     {
         "_id": "5c8a1d5b0190b214360dc036",
-        "name": "Jerry Wiliams",
+        "name": "Jerry Williams",
         "email": "jerry@gmail.com",
         "role": "user",
         "password": "123456"
@@ -92,14 +92,14 @@
     },
     {
         "_id": "5c8a1d5b0190b214360dc039",
-        "name": "Ryan Bolin",
+        "name": "Ryan Blown",
         "email": "ryan@gmail.com",
         "role": "user",
         "password": "123456"
     },
     {
         "_id": "5c8a1d5b0190b214360dc040",
-        "name": "Sara Kensing",
+        "name": "Sara Kenning",
         "email": "sara@gmail.com",
         "role": "user",
         "password": "123456"
