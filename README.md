@@ -17,10 +17,10 @@ node seeder -d // delete
 
 ## Tech Stack
 
--   ReactJS
--   React-Redux
--   React-Router-Dom
--   Bootstrap
+-   NodeJS/ExpressJS
+-   Mongoose
+-   Husky/Prettier/ESLint
+-   MongoDB
 
 ## Documentation
 
