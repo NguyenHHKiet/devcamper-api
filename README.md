@@ -28,13 +28,17 @@ node seeder -d // delete
 
 ### GET/POST/PUT/DELETE
 
-| Header Routes     | GET | POST | PUT | DELETE |
-| ----------------- | --- | ---- | --- | ------ |
-| /api/v1/bootcamps |     |      |     |
-| /api/v1/courses   |     |
-| /api/v1/reviews   |     |
-| /api/v1/auth      |     |
-| /api/v1/users     |     |
+root: `/api/v1/`
+
+| Header Routes               | GET        | POST                                   | PUT                 | DELETE |
+| --------------------------- | ---------- | -------------------------------------- | ------------------- | ------ |
+| (parent) bootcamps          | `/`,`/:id` | `/`                                    | `/:id`,`/:id/photo` | `/:id` |
+| (child) :bootcampId/courses | `/`        | `/`                                    |                     |        |
+| courses                     | `/`,`/:id` |                                        | `/:id`              | `/:id` |
+| reviews                     |            |                                        |                     |        |
+| (parent) auth               | `/me`      | `/register`,`/login`,`/forgetpassword` | `/updatedetails`    |        |
+| (child) forgetpassword      |            |                                        | `/:resettoken`      |        |
+| users                       | `/`,`/:id` | `/`                                    | `/:id`              | `/:id` |
 
 <ul>
     <li>Filter Values: housing=true&averageCost[lte]=100</li>
