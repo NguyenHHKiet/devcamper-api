@@ -1,6 +1,6 @@
 # Node.JS API devcamper-api
 
-> Create a real-world backend for a bootcamp directory app
+> Create a real-world backend for a bootcamp directory app, backend API for DevCampers application to manage bootcamps,courses,reviews,users and authentication
 
 ## Usage
 
@@ -25,6 +25,7 @@ node seeder -d // delete
 ## Documentation
 
 -   Use Postman to create documentation
+-   [Documentation DevCamper API](https://documentation-devcamperapi.netlify.app/)
 
 ### GET/POST/PUT/DELETE
 
@@ -139,7 +140,3 @@ root: `/api/v1/`
 -   Protect against HTTP param pollution
 -   Add headers for security (helmet)
 -   Use Cors to make API public (for now)
-
-```
-
-```

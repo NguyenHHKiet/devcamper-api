@@ -9,7 +9,7 @@ const {
 
 const User = require("../models/User");
 
-const router = express.Router({ mergeParams: true });
+const router = express.Router();
 
 const advancedResults = require("../middleware/advancedResults");
 const { protect, authorize } = require("../middleware/auth");
