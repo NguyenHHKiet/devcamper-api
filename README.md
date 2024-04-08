@@ -31,15 +31,15 @@ node seeder -d // delete
 
 root: `/api/v1/`
 
-| Header Routes               | GET        | POST                                   | PUT                 | DELETE |
-| --------------------------- | ---------- | -------------------------------------- | ------------------- | ------ |
-| (parent) bootcamps          | `/`,`/:id` | `/`                                    | `/:id`,`/:id/photo` | `/:id` |
-| (child) :bootcampId/courses | `/`        | `/`                                    |                     |        |
-| courses                     | `/`,`/:id` |                                        | `/:id`              | `/:id` |
-| reviews                     |            |                                        |                     |        |
-| (parent) auth               | `/me`      | `/register`,`/login`,`/forgetpassword` | `/updatedetails`    |        |
-| (child) forgetpassword      |            |                                        | `/:resettoken`      |        |
-| users                       | `/`,`/:id` | `/`                                    | `/:id`              | `/:id` |
+| Header Routes               | GET        | POST                                                                     | PUT                 | DELETE |
+| --------------------------- | ---------- | ------------------------------------------------------------------------ | ------------------- | ------ |
+| (parent) bootcamps          | `/`,`/:id` | `/`                                                                      | `/:id`,`/:id/photo` | `/:id` |
+| (child) :bootcampId/courses | `/`        | `/`                                                                      |                     |        |
+| courses                     | `/`,`/:id` |                                                                          | `/:id`              | `/:id` |
+| reviews                     |            |                                                                          |                     |        |
+| (parent) auth               | `/me`      | <ul><li>`/register`</li><li>`/login`</li><li>`/forgetpassword`</li></ul> | `/updatedetails`    |        |
+| (child) forgetpassword      |            |                                                                          | `/:resettoken`      |        |
+| users                       | `/`,`/:id` | `/`                                                                      | `/:id`              | `/:id` |
 
 <ul>
     <li>Filter Values: housing=true&averageCost[lte]=100</li>
