@@ -1,4 +1,3 @@
-const path = require("path");
 const asyncHandler = require("../middleware/async");
 const ErrorResponse = require("../utils/errorResponse");
 const User = require("../models/User");
@@ -6,7 +5,7 @@ const User = require("../models/User");
 // @desc    Register user
 // @route   Post /api/v1/auth/register
 // @access  Public
-exports.register = asyncHandler(async (req, res, next) => {
+exports.register = asyncHandler(async (req, res) => {
     const { name, email, password, role } = req.body;
 
     // Create user
@@ -68,7 +67,7 @@ const sendTokenResponse = (user, statusCode, res) => {
 // @desc    Get current logged in user
 // @route   Post /api/v1/auth/me
 // @access  Private
-exports.getMe = asyncHandler(async (req, res, next) => {
+exports.getMe = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user.id);
 
     res.status(200).json({
