@@ -69,10 +69,41 @@ exports.getMe = asyncHandler(async (req, res, next) => {
         return next(new ErrorResponse("Invalid credentials", 401));
     }
 
-    res.status(200).json({
-        success: true,
-        data: user,
+    res.status(200).json({ success: true, data: user });
+});
+
+// @desc    Update user details
+// @route   Put /api/v1/auth/updatedetails
+// @access  Private
+exports.updateDetails = asyncHandler(async (req, res) => {
+    const fieldsToUpdate = {
+        name: req.body.name,
+        email: req.body.email,
+    };
+
+    const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
+        new: true,
+        runValidators: true,
     });
+
+    res.status(200).json({ success: true, data: user });
+});
+
+// @desc    Update password
+// @route   Put /api/v1/auth/updatepassword
+// @access  Private
+exports.updatePassword = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user.id).select("+password");
+
+    // Check current password
+    if (!(await user.matchPassword(req.body.currentPassword))) {
+        return next(new ErrorResponse("Password is incorrect", 401));
+    }
+
+    user.password = req.body.newPassword;
+    await user.save();
+
+    sendTokenResponse(user, 200, res);
 });
 
 // @desc    Forget password
