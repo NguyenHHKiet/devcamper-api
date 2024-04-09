@@ -59,6 +59,19 @@ exports.login = asyncHandler(async (req, res, next) => {
     sendTokenResponse(user, 200, res);
 });
 
+// @desc    Logout user / clear token
+// @route   Get /api/v1/auth/logout
+// @access  Public
+// eslint-disable-next-line no-unused-vars
+exports.logout = asyncHandler(async (req, res, next) => {
+    res.cookie("token", "none", {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true,
+    });
+
+    res.status(200).json({ success: true, data: {} });
+});
+
 // @desc    Get current logged in user
 // @route   Post /api/v1/auth/me
 // @access  Private

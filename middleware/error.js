@@ -1,6 +1,7 @@
 const ErrorResponse = require("../utils/errorResponse");
 
 // don't remove this next function
+// eslint-disable-next-line no-unused-vars
 const errorHandler = (err, req, res, next) => {
     let error = { ...err };
 
