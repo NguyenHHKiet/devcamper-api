@@ -7,6 +7,11 @@ const fileUpload = require("express-fileupload");
 const helmet = require("helmet");
 const compression = require("compression");
 const cookieParser = require("cookie-parser");
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
+const hpp = require("hpp");
+const rateLimit = require("express-rate-limit");
+const cors = require("cors");
 const errorHandler = require("./middleware/error");
 const ErrorResponse = require("./utils/errorResponse");
 const connectDB = require("./config/db");
@@ -38,6 +43,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Helmet helps secure Express apps by setting HTTP response headers.
+// Prevent Cross-Site Scripting (XSS) attacks, Content Security Policy (CSP) vulnerabilities,...
 app.use(helmet());
 
 // decreases the downloadable amount of data that's served to users.
@@ -45,6 +51,30 @@ app.use(compression()); // compress responses
 
 // File uploading
 app.use(fileUpload());
+
+// To remove data using these defaults:
+app.use(mongoSanitize());
+
+// Prevent XSS attacks
+app.use(xss());
+
+// Rate limit settings
+// Use to limit repeated requests to public APIs and/or endpoints such as password reset.
+app.use(
+    rateLimit({
+        windowMs: 15 * 60 * 1000, // 15 minutes
+        limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+        standardHeaders: "draft-7", // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
+        legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+        // store: ... , // Redis, Memcached, etc. See below.
+    }),
+);
+
+// Hpp protect against HTTP Parameter Pollution attacks
+app.use(hpp());
+
+// Enable CORS
+app.use(cors());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));

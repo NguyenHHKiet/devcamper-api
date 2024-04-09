@@ -26,6 +26,7 @@ node seeder -d // delete
 
 -   Use Postman to create documentation
 -   [Documentation DevCamper API](https://documentation-devcamperapi.netlify.app/)
+-   [Docgen](https://github.com/thedevsaddam/docgen?tab=readme-ov-file)
 
 ### GET/POST/PUT/DELETE
 
