@@ -1,6 +1,6 @@
 ### Node.JS API for Devcamper
 
-> Build a robust backend for a bootcamp directory app. Manage bootcamps, courses, reviews, users, and authentication for the DevCampers application.
+> Project Description DevCamper is a fully functional application that allows users to search, create, manage, and evaluate bootcamps. With rich features such as pagination, filtering, and authentication, this project provides a powerful platform for managing and evaluating bootcamp courses. Security is a top priority with encryption mechanisms, common attack protection, and request rate limiting.
 
 ## Usage
 
